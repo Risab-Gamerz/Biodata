@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risab Das - Biodata</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 110vh;
+        }
+        .container {
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #00fff0;
+            text-shadow: 0px 0px 10px cyan;
+        }
+        .info {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .highlight {
+            color: #ff2e63;
+            font-weight: bold;
+        }
+        .section {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+        }
+        .section-title {
+            font-size: 1.5em;
+            color: #00fff0;
+            text-shadow: 0px 0px 10px cyan;
+        }
+        .badge {
+            display: inline-block;
+            background: #222;
+            color: #00fff0;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 1em;
+            transition: 0.3s;
+        }
+        .badge:hover {
+            background: #00fff0;
+            color: black;
+            transform: scale(1.1);
+        }
+        .youtube {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 0, 0, 0.3);
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px red;
+        }
+        .youtube a {
+            display: inline-block;
+            background: red;
+            color: white;
+            padding: 10px 15px;
+            font-size: 1.2em;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .youtube a:hover {
+            background: #ff4d4d;
+            transform: scale(1.1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Risab Das</h1>
+        <p class="info"><strong>Age:</strong> <span id="age"></span></p>
+        <p class="info"><strong>Nationality:</strong> <span class="highlight">Indian</span></p>
+        <p class="info"><strong>Religion:</strong> <span class="highlight">Hindu</span></p>
+        <p class="info"><strong>IQ:</strong> <span class="highlight">135 (Mensa Certified)</span></p>
+        <p class="info"><strong>Type:</strong> <span class="highlight">Ambivert</span></p>
+
+        <div class="section">
+            <h2 class="section-title">Skills</h2>
+            <span class="badge">Gamer</span>
+            <span class="badge">Editor</span>
+            <span class="badge">Topper</span>
+            <span class="badge">Coder</span>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Known Languages</h2>
+            <span class="badge">Hindi</span>
+            <span class="badge">English</span>
+            <span class="badge">Bengali</span>
+            <span class="badge">Russian</span>
+        </div>
+
+        <div class="youtube">
+            <h2 class="section-title">My YouTube Channel</h2>
+            <a href="https://www.youtube.com/@YourChannel" target="_blank">Visit My Channel</a>
+        </div>
+    </div>
+
+    <script>
+        function calculateAge(birthdate) {
+            let today = new Date();
+            let birthDate = new Date(birthdate);
+
+            let years = today.getFullYear() - birthDate.getFullYear();
+            let months = today.getMonth() - birthDate.getMonth();
+            let days = today.getDate() - birthDate.getDate();
+
+            if (days < 0) {
+                months--;
+                let previousMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+                days += previousMonth.getDate();
+            }
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            return `${years} years, ${months} months, ${days} days`;
+        }
+
+        document.getElementById("age").textContent = calculateAge("2009-04-03");
+    </script>
+
+</body>
+</html>
