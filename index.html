@@ -2,162 +2,223 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="AtCaagSAjryOsgCbQcCZcH_-cRQyjJB5WKtNnXbfYE0" />
-    <title>Risab Das - Biodata</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Risab — Bio Site</title>
+
+    <!-- Preconnect for Faster Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Import Poppins Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
-        /* Global Styles */
-        * {
+        /* Global Styling */
+        :root {
+            color-scheme: light dark;
+        }
+
+        body, html {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
-        }
-        body {
-            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            background: linear-gradient(135deg, #000000, #333333, #444444);
+            background-size: 300% 300%;
+            animation: gradientShift 10s ease infinite;
             color: white;
             text-align: center;
-            overflow-x: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 110vh;
+            overflow: hidden;
         }
-        .container {
-            max-width: 700px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.4);
-            backdrop-filter: blur(10px);
-            animation: fadeIn 1.5s ease-in-out;
+
+        /* Animated Gradient Background */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        h1 {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #00fff0;
-            text-shadow: 0px 0px 10px cyan;
-        }
-        .info {
-            font-size: 1.2em;
+
+        /* Header Styling */
+        header {
             margin: 10px 0;
+            position: relative;
+            z-index: 1;
         }
-        .highlight {
-            color: #ff2e63;
-            font-weight: bold;
+
+        header img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border: 3px solid white;
+            transition: transform 0.3s ease;
         }
-        .section {
-            margin-top: 15px;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.15);
+
+        header img:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: 5px 0;
+            background: linear-gradient(90deg, #ff512f, #dd2476);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* Social Media Links */
+        .socials {
+            margin: 5px 0;
+        }
+
+        .socials a img {
+            height: 25px;
+            margin: 0 8px;
+            transition: transform 0.3s, opacity 0.3s;
+            opacity: 0.8;
+        }
+
+        .socials a:hover img {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        /* Motivational Quote */
+        p.quote {
+            font-style: italic;
+            font-weight: 400;
+            margin: 10px 0;
+            opacity: 0.9;
+            background: linear-gradient(90deg, #dd2476, #ff512f);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* Card Design for Info */
+        .card {
+            margin: 10px auto;
+            padding: 10px;
+            max-width: 280px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            transition: transform 0.2s ease;
+            text-align: left;
+            position: relative;
+            z-index: 1;
         }
-        .section-title {
-            font-size: 1.5em;
-            color: #00fff0;
-            text-shadow: 0px 0px 10px cyan;
+
+        .card:hover {
+            transform: translateY(-3px);
         }
-        .badge {
-            display: inline-block;
-            background: #222;
-            color: #00fff0;
-            padding: 8px 15px;
-            margin: 5px;
-            border-radius: 20px;
+
+        .card p {
+            margin: 6px 0;
             font-size: 1em;
-            transition: 0.3s;
+            padding-left: 8px;
+            color: #f2a365;
         }
-        .badge:hover {
-            background: #00fff0;
-            color: black;
-            transform: scale(1.1);
+
+        .card p strong {
+            color: #ff512f;
         }
-        .youtube {
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(255, 0, 0, 0.3);
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px red;
+
+        /* Footer Styling */
+        footer {
+            margin: 15px 0;
+            font-size: 0.8em;
+            opacity: 0.7;
+            position: relative;
+            z-index: 1;
         }
-        .youtube a {
-            display: inline-block;
-            background: red;
-            color: white;
-            padding: 10px 15px;
-            font-size: 1.2em;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: 0.3s;
+
+        /* Falling Particles */
+        .particle {
+            position: absolute;
+            top: -10px;
+            background: white;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: fall linear infinite;
         }
-        .youtube a:hover {
-            background: #ff4d4d;
-            transform: scale(1.1);
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) scale(0.4);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh) scale(1);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Risab Das</h1>
-        <p class="info"><strong>Age:</strong> <span id="age"></span></p>
-        <p class="info"><strong>Nationality:</strong> <span class="highlight">Indian</span></p>
-        <p class="info"><strong>Religion:</strong> <span class="highlight">Hindu</span></p>
-        <p class="info"><strong>IQ:</strong> <span class="highlight">135 (Mensa Certified)</span></p>
-        <p class="info"><strong>Type:</strong> <span class="highlight">Ambivert</span></p>
+    <!-- Falling Particles Container -->
+    <div id="particleContainer"></div>
 
-        <div class="section">
-            <h2 class="section-title">Skills</h2>
-            <span class="badge">Gamer</span>
-            <span class="badge">Editor</span>
-            <span class="badge">Topper</span>
-            <span class="badge">Coder</span>
-        </div>
+    <!-- Header Section -->
+    <header>
+        <img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/refs/heads/main/Bio.jpg" alt="Risab Profile Picture">
+        <h1>Risab</h1>
+    </header>
 
-        <div class="section">
-            <h2 class="section-title">Known Languages</h2>
-            <span class="badge">Hindi</span>
-            <span class="badge">English</span>
-            <span class="badge">Bengali</span>
-            <span class="badge">Russian</span>
-        </div>
-
-        <div class="youtube">
-            <h2 class="section-title">My YouTube Channel</h2>
-            <a href="https://www.youtube.com/@YourChannel" target="_blank">Visit My Channel</a>
-        </div>
+    <!-- Social Media Links -->
+    <div class="socials">
+        <a href="https://www.instagram.com/risab_editzz" target="_blank" rel="noopener noreferrer">
+            <img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/refs/heads/main/Instagram%20.png" alt="Instagram">
+        </a>
+        <a href="https://www.youtube.com/@RisabGamerz" target="_blank" rel="noopener noreferrer">
+            <img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/refs/heads/main/youtube.png" alt="YouTube">
+        </a>
+        <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/refs/heads/main/Spotify.png" alt="Spotify">
+        </a>
     </div>
 
+    <!-- Motivational Quote -->
+    <p class="quote">No one has ever changed the world by doing what the world said to do.</p>
+
+    <!-- Skills and Details -->
+    <div class="card">
+        <p><strong>Skills:</strong> Editor, Gamer, AI Master, Chess Expert, Developer</p>
+        <p><strong>Nationality:</strong> Indian</p>
+        <p><strong>Religion:</strong> Hindu</p>
+        <p><strong>Age:</strong> <span id="age"></span></p>
+        <p><strong>IQ:</strong> 135</p>
+        <p><strong>Known Languages:</strong> English, Hindi, Bengali, Russian</p>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Made By Risab</p>
+    </footer>
+
+    <!-- Age Calculation and Particle Script -->
     <script>
-        function calculateAge(birthdate) {
-            let today = new Date();
-            let birthDate = new Date(birthdate);
-
-            let years = today.getFullYear() - birthDate.getFullYear();
-            let months = today.getMonth() - birthDate.getMonth();
-            let days = today.getDate() - birthDate.getDate();
-
-            if (days < 0) {
-                months--;
-                let previousMonth = new Date(today.getFullYear(), today.getMonth(), 0);
-                days += previousMonth.getDate();
+        function calculateAge(birthDate) {
+            const today = new Date();
+            const birth = new Date(birthDate);
+            let age = today.getFullYear() - birth.getFullYear();
+            const monthDiff = today.getMonth() - birth.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+                age--;
             }
-
-            if (months < 0) {
-                years--;
-                months += 12;
-            }
-
-            return `${years} years, ${months} months, ${days} days`;
+            return age;
         }
+        document.getElementById('age').textContent = calculateAge('2009-01-01');
 
-        document.getElementById("age").textContent = calculateAge("2009-04-03");
+        const container = document.getElementById("particleContainer");
+        setInterval(() => {
+            const particle = document.createElement("div");
+            particle.classList.add("particle");
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.animationDuration = `${2 + Math.random() * 2}s`;
+            container.appendChild(particle);
+            setTimeout(() => particle.remove(), 4000);
+        }, 120);
     </script>
 
 </body>
