@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Risab Editz | Editing Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(-90deg, #4b0082, #ff7f50);
+      background-size: 200% 200%;
+      animation: gradientBG 6s ease infinite;
+      overflow-x: hidden;
+      color: #fff;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: rgba(255, 165, 0, 0.7);
+      border-radius: 2px;
+      transform: rotate(45deg);
+      box-shadow: 0 0 8px rgba(255, 0, 255, 0.5);
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-20px) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ffcc70, #c850c0, #ffcc70);
+      background-size: 200%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGradient 6s ease infinite;
+    }
+
+    @keyframes textGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 3rem 1rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 3rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #eee;
+    }
+
+    main {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      border-radius: 12px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .project, .thumbnail {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .project a, .thumbnail a {
+      color: #ffccff;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .project img, .thumbnail img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+
+    .contact {
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .contact a {
+      color: #ffdf70;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      iframe {
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="particles" id="particles"></div>
+
+  <header>
+    <h1 class="gradient-text">Risab Editz</h1>
+    <p>Video Editor | 3D Designer | AI Artist</p>
+  </header>
+
+  <main>
+    <section>
+      <h2 class="gradient-text">About Me</h2>
+      <p>I’m a creative video editor with experience in YouTube content, reels/shorts, cinematic storytelling, and more. I bring energy, pacing, and visual clarity to every project I touch.</p>
+    </section>
+
+    <section>
+      <h2 class="gradient-text">Video Projects</h2>
+
+      <div class="project">
+        <h3>Cinematic</h3>
+        <p>Cinematic Video.</p>
+        <iframe src="https://youtube.com/embed/rkQeFdLjHXM?si=UM0rUmpn1iLBvpsW" allowfullscreen></iframe>
+      </div>
+
+      <div class="project">
+        <h3>Showcase Video</h3>
+        <p>Showcase Videos</p>
+        <iframe src="https://www.youtube.com/embed/nYYnIcqs8Ks" allowfullscreen></iframe>
+      </div>
+    </section>
+<p> Watch The Instragram Reels Because I use a new software now </p>
+    <section>
+      <h2 class="gradient-text">Instagram Reels</h2>
+
+      <div class="project">
+        <h3>Heavy Edit</h3>
+        <p><a href="https://www.instagram.com/reel/DIQ3TsisDZV/" target="_blank">https://www.instagram.com/reel/DIQ3TsisDZV/</a></p>
+      </div>
+
+      <div class="project">
+        <h3>Heavy Edit</h3>
+        <p><a href="https://www.instagram.com/reel/DIYWiWSyGvJ/" target="_blank">https://www.instagram.com/reel/DIYWiWSyGvJ/</a></p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="gradient-text">Thumbnail Designs</h2>
+
+      <div class="thumbnail">
+        <h3>Thumbnail 1</h3>
+        <p>Designed for a reaction video.</p>
+        <img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/main/Editor/1.jpg" alt="Thumbnail 1">
+      </div>
+
+      <div class="thumbnail">
+        <h3>Thumbnail 2</h3>
+        <p>Made for a cinematic vlog.</p>
+        <img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/main/Editor/2.jpg" alt="Thumbnail 2">
+      </div>
+
+      <div class="thumbnail">
+        <h3>Thumbnail 3</h3>
+        <p>Another creative design.</p>
+        <img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/main/Editor/3.jpg" alt="Thumbnail 3">
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2 class="gradient-text">Contact</h2>
+      <p>Email: risabdas0304@gmail.com</p>
+      <p>Instagram | YouTube | X </p>
+    </section>
+  </main>
+
+  <script>
+    // Generate falling particles
+    const particleContainer = document.getElementById('particles');
+    for (let i = 0; i < 80; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.animationDuration = 4 + Math.random() * 6 + 's';
+      particle.style.animationDelay = Math.random() * 10 + 's';
+      particleContainer.appendChild(particle);
+    }
+  </script>
+
+</body>
+</html>

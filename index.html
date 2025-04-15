@@ -1,225 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Risab — Bio Site</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Risab — Gorgeous Bio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <!-- Preconnect for Faster Font Loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Import Poppins Font from Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #12121c);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      overflow-x: hidden;
+    }
 
-    <style>
-        /* Global Styling */
-        :root {
-            color-scheme: light dark;
-        }
+    .container {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 1s ease;
+    }
 
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #000000, #333333, #444444);
-            background-size: 300% 300%;
-            animation: gradientShift 10s ease infinite;
-            color: white;
-            text-align: center;
-            overflow: hidden;
-        }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
 
-        /* Animated Gradient Background */
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+    .profile-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid #ff6a00;
+      box-shadow: 0 0 20px #ff6a00;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      transition: transform 0.3s;
+    }
 
-        /* Header Styling */
-        header {
-            margin: 10px 0;
-            position: relative;
-            z-index: 1;
-        }
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
 
-        header img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            border: 3px solid white;
-            transition: transform 0.3s ease;
-        }
+    h1 {
+      font-size: 2rem;
+      background: linear-gradient(90deg, #f953c6, #b91d73);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
 
-        header img:hover {
-            transform: scale(1.05);
-        }
+    .quote {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
 
-        h1 {
-            font-size: 2em;
-            margin: 5px 0;
-            background: linear-gradient(90deg, #ff512f, #dd2476);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 1.5rem;
+    }
 
-        /* Social Media Links */
-        .socials {
-            margin: 5px 0;
-        }
+    .socials img {
+      width: 30px;
+      transition: transform 0.2s, opacity 0.2s;
+      opacity: 0.8;
+    }
 
-        .socials a img {
-            height: 25px;
-            margin: 0 8px;
-            transition: transform 0.3s, opacity 0.3s;
-            opacity: 0.8;
-        }
+    .socials a:hover img {
+      transform: scale(1.2);
+      opacity: 1;
+    }
 
-        .socials a:hover img {
-            transform: scale(1.1);
-            opacity: 1;
-        }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
 
-        /* Motivational Quote */
-        p.quote {
-            font-style: italic;
-            font-weight: 400;
-            margin: 10px 0;
-            opacity: 0.9;
-            background: linear-gradient(90deg, #dd2476, #ff512f);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
+    .skills a {
+      background: linear-gradient(90deg, #ff512f, #dd2476);
+      color: white;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: transform 0.2s ease;
+    }
 
-        /* Card Design for Info */
-        .card {
-            margin: 10px auto;
-            padding: 10px;
-            max-width: 280px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(8px);
-            transition: transform 0.2s ease;
-            text-align: left;
-            position: relative;
-            z-index: 1;
-        }
+    .skills a:hover {
+      transform: scale(1.05);
+    }
 
-        .card:hover {
-            transform: translateY(-3px);
-        }
+    .info {
+      text-align: left;
+      font-size: 0.9rem;
+    }
 
-        .card p {
-            margin: 6px 0;
-            font-size: 1em;
-            padding-left: 8px;
-            color: #f2a365;
-        }
+    .info p {
+      margin: 6px 0;
+    }
 
-        .card p strong {
-            color: #ff512f;
-        }
+    .info strong {
+      color: #fbae17;
+    }
 
-        /* Footer Styling */
-        footer {
-            margin: 15px 0;
-            font-size: 0.8em;
-            opacity: 0.7;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Falling Particles */
-        .particle {
-            position: absolute;
-            top: -10px;
-            background: white;
-            width: 3px;
-            height: 3px;
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(0) scale(0.4);
-                opacity: 0.7;
-            }
-            100% {
-                transform: translateY(100vh) scale(1);
-                opacity: 0;
-            }
-        }
-    </style>
+    footer {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      text-align: center;
+      opacity: 0.5;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Falling Particles Container -->
-    <div id="particleContainer"></div>
+  <div class="container">
+    <img class="profile-img" src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/refs/heads/main/Bio.jpg" alt="Risab">
+    <h1>Risab</h1>
+    <p class="quote">"No one has ever changed the world by doing what the world said to do."</p>
 
-    <!-- Header Section -->
-    <header>
-        <img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/refs/heads/main/Bio.jpg" alt="Risab Profile Picture">
-        <h1>Risab</h1>
-    </header>
-
-    <!-- Social Media Links -->
     <div class="socials">
-        <a href="https://www.instagram.com/risab_editzz" target="_blank" rel="noopener noreferrer">
-            <img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/refs/heads/main/Instagram%20.png" alt="Instagram">
-        </a>
-        <a href="https://www.youtube.com/@RisabGamerz" target="_blank" rel="noopener noreferrer">
-            <img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/refs/heads/main/youtube.png" alt="YouTube">
-        </a>
-        <a href="https://open.spotify.com/user/31j3thlbkm3b56egsrugcpm3egxa?si=TdA-lApBRYKsSmoP2cIGdw" target="_blank" rel="noopener noreferrer">
-            <img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/refs/heads/main/Spotify.png" alt="Spotify">
-        </a>
+      <a href="https://www.instagram.com/risab_editzz" target="_blank"><img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/refs/heads/main/Instagram%20.png" alt="Instagram"/></a>
+      <a href="https://www.youtube.com/@RisabGamerz" target="_blank"><img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/refs/heads/main/youtube.png" alt="YouTube"/></a>
+      <a href="https://open.spotify.com/user/31j3thlbkm3b56egsrugcpm3egxa" target="_blank"><img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/refs/heads/main/Spotify.png" alt="Spotify"/></a>
     </div>
 
-    <!-- Motivational Quote -->
-    <p class="quote">No one has ever changed the world by doing what the world said to do.</p>
-
-    <!-- Skills and Details -->
-    <div class="card">
-        <p><strong>Skills:</strong> Editor, Gamer, AI Master, Chess Expert, Developer</p>
-        <p><strong>Nationality:</strong> Indian</p>
-        <p><strong>Religion:</strong> Hindu</p>
-        <p><strong>Age:</strong> <span id="age"></span></p>
-        <p><strong>IQ:</strong> 135</p>
-        <p><strong>Known Languages:</strong> English, Hindi, Bengali, Russian</p>
+    <div class="skills">
+      <a href="Editing.html">Editor</a>
+      <a href="gaming.html">Gamer</a>
+      <a href="ai.html">AI Master</a>
+      <a href="chess.html">Chess Expert</a>
+      <a href="developer.html">Developer</a>
     </div>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>Made By Risab</p>
-    </footer>
+    <div class="info">
+      <p><strong>Nationality:</strong> Indian</p>
+      <p><strong>Religion:</strong> Hindu</p>
+      <p><strong>Age:</strong> <span id="age"></span></p>
+      <p><strong>IQ:</strong> 135</p>
+      <p><strong>Languages:</strong> English, Hindi, Bengali, Russian</p>
+    </div>
 
-    <!-- Age Calculation and Particle Script -->
-    <script>
-        function calculateAge(birthDate) {
-            const today = new Date();
-            const birth = new Date(birthDate);
-            let age = today.getFullYear() - birth.getFullYear();
-            const monthDiff = today.getMonth() - birth.getMonth();
-            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
-                age--;
-            }
-            return age;
-        }
-        document.getElementById('age').textContent = calculateAge('2009-01-01');
+    <footer>Made by Risab — 2025</footer>
+  </div>
 
-        const container = document.getElementById("particleContainer");
-        setInterval(() => {
-            const particle = document.createElement("div");
-            particle.classList.add("particle");
-            particle.style.left = `${Math.random() * 100}vw`;
-            particle.style.animationDuration = `${2 + Math.random() * 2}s`;
-            container.appendChild(particle);
-            setTimeout(() => particle.remove(), 4000);
-        }, 120);
-    </script>
+  <script>
+    function calculateAge(birthDate) {
+      const today = new Date();
+      const birth = new Date(birthDate);
+      let age = today.getFullYear() - birth.getFullYear();
+      const m = today.getMonth() - birth.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+        age--;
+      }
+      return age;
+    }
+    document.getElementById('age').textContent = calculateAge('2009-01-01');
+  </script>
 
 </body>
 </html>
