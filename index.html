@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Risab — Gorgeous Bio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risab — Portfolio</title>
+  <meta name="description" content="Portfolio of Risab - Editor, Gamer & Developer">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -12,160 +13,631 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
       font-family: 'Outfit', sans-serif;
-      background: linear-gradient(135deg, #1e1e2f, #12121c);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
+      background: #0a0a0a;
+      color: #ffffff;
+      scroll-behavior: smooth;
       overflow-x: hidden;
     }
 
-    .container {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 2rem;
-      max-width: 400px;
-      width: 90%;
-      text-align: center;
-      backdrop-filter: blur(15px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-      animation: fadeIn 1s ease;
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      top: 0;
+      left: 0;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+    .loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .loader span {
+      font-size: 2rem;
+      color: #ff1a1a;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* Improved contrast for accessibility */
+    a, button {
+      color: #ff4d4d;
+    }
+    a:hover, button:hover {
+      color: #ff1a1a;
+    }
+
+    /* New animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .float-anim {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .pulse-anim {
+      animation: pulse 2s ease infinite;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.9);
+      backdrop-filter: blur(5px);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ff1a1a;
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover {
+      text-shadow: 0 0 10px #ff1a1a;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: #ff1a1a;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #ff1a1a;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 2rem;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 4rem;
     }
 
     .profile-img {
-      width: 130px;
-      height: 130px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      border: 4px solid #ff6a00;
-      box-shadow: 0 0 20px #ff6a00;
+      border: 3px solid #ff1a1a;
+      box-shadow: 0 0 30px #ff1a1a;
       object-fit: cover;
-      margin-bottom: 1rem;
-      transition: transform 0.3s;
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .profile-img:hover {
-      transform: scale(1.05);
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 0 40px #ff1a1a;
     }
 
-    h1 {
-      font-size: 2rem;
-      background: linear-gradient(90deg, #f953c6, #b91d73);
-      -webkit-background-clip: text;
-      color: transparent;
-      margin-bottom: 0.5rem;
+    .hero h1 {
+      font-size: 3rem;
+      color: #ff1a1a;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(255, 26, 26, 0.5);
     }
 
-    .quote {
-      font-size: 0.9rem;
-      opacity: 0.8;
-      font-style: italic;
-      margin-bottom: 1.5rem;
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      color: #e0e0e0;
+      margin-bottom: 2rem;
+      line-height: 1.6;
     }
 
     .socials {
       display: flex;
       justify-content: center;
-      gap: 16px;
-      margin-bottom: 1.5rem;
+      gap: 1.5rem;
+      margin: 2rem 0;
     }
 
     .socials img {
-      width: 30px;
-      transition: transform 0.2s, opacity 0.2s;
+      width: 32px;
       opacity: 0.8;
+      transition: all 0.3s ease;
     }
 
     .socials a:hover img {
-      transform: scale(1.2);
+      transform: scale(1.2) rotate(10deg);
       opacity: 1;
+      filter: drop-shadow(0 0 5px #ff1a1a);
     }
 
-    .skills {
+    .buttons {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-      margin-bottom: 1.5rem;
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
-    .skills a {
-      background: linear-gradient(90deg, #ff512f, #dd2476);
+    .buttons a {
+      padding: 0.8rem 1.6rem;
+      background: #ff1a1a;
       color: white;
+      border-radius: 8px;
       text-decoration: none;
-      padding: 6px 12px;
-      border-radius: 12px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      transition: transform 0.2s ease;
+      font-weight: bold;
+      box-shadow: 0 0 15px #ff1a1a;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
     }
 
-    .skills a:hover {
-      transform: scale(1.05);
+    .buttons a:hover {
+      background: #cc0000;
+      box-shadow: 0 0 25px #ff1a1a;
+      transform: translateY(-3px);
+    }
+
+    .buttons a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+
+    .buttons a:hover::before {
+      left: 100%;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #ff1a1a;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      bottom: -10px;
+      left: 25%;
+      background: #ff1a1a;
+      border-radius: 3px;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.5s ease;
+    }
+
+    .section:hover .section-title::after {
+      transform: scaleX(1);
+    }
+
+    .projects-grid, .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #111;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.6);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: #ff1a1a;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card h3 {
+      color: #fbae17;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .card p {
+      color: #d0d0d0;
+      line-height: 1.6;
     }
 
     .info {
+      margin: 2rem auto;
+      max-width: 600px;
       text-align: left;
-      font-size: 0.9rem;
+      padding: 1.5rem;
+      background: rgba(17, 17, 17, 0.7);
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 26, 26, 0.1);
     }
 
     .info p {
-      margin: 6px 0;
+      margin: 1rem 0;
+      font-size: 1rem;
+      color: #e0e0e0;
     }
 
     .info strong {
       color: #fbae17;
     }
 
+    .companies-section {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .company-card {
+      background: #111;
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 26, 26, 0.1);
+    }
+
+    .company-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(255, 0, 0, 0.5);
+    }
+
+    .company-card h3 {
+      color: #fbae17;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .company-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 2px solid #fbae17;
+    }
+
+    .company-card p {
+      color: #d0d0d0;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .kofi-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: red;
+      color: black;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .kofi-btn:hover {
+      background: Black;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 100, 100, 0.4);
+    }
+
+    .kofi-icon {
+      width: 20px;
+      height: 20px;
+    }
+
     footer {
-      margin-top: 2rem;
-      font-size: 0.75rem;
       text-align: center;
-      opacity: 0.5;
+      padding: 3rem 2rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Animation classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* New scroll reveal animation */
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .slide-up {
+      animation: slideUp 1s ease forwards;
+    }
+
+    /* Skip to content link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #ff1a1a;
+      color: white;
+      padding: 8px;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+
+    .skip-link:focus {
+      top: 0;
     }
   </style>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="loader"><span>Loading...</span></div>
+  
+  <div id="particles-js"></div>
+  
+  <header>
+    <div class="logo pulse-anim">Risab</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#companies">Companies</a>
+    </nav>
+  </header>
 
-  <div class="container">
-    <img class="profile-img" src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/refs/heads/main/Bio.jpg" alt="Risab">
-    <h1>Risab</h1>
-    <p class="quote">"No one has ever changed the world by doing what the world said to do."</p>
+  <main id="main">
+    <section class="hero">
+      <img class="profile-img float-anim" src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/main/Bio.jpg" alt="Risab">
+      <h1>Hi, I'm Risab</h1>
+     <p>"No one has ever changed the world by doing what the world said to do."</p>
+      
+      <div class="socials">
+        <a href="https://www.instagram.com/risab_editzz" target="_blank" aria-label="Instagram">
+          <img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/main/Instagram%20.png" alt="Instagram">
+        </a>
+        <a href="https://www.youtube.com/@RisabGamerz" target="_blank" aria-label="YouTube">
+          <img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/main/youtube.png" alt="YouTube">
+        </a>
+        <a href="https://open.spotify.com/user/31j3thlbkm3b56egsrugcpm3egxa" target="_blank" aria-label="Spotify">
+          <img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/main/Spotify.png" alt="Spotify">
+        </a>
+      </div>
+      
+      <div class="buttons">
+        <a href="#projects">View My Work</a>
+        <a href="#companies">My Companies</a>
+      </div>
+    </section>
 
-    <div class="socials">
-      <a href="https://www.instagram.com/risab_editzz" target="_blank"><img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/refs/heads/main/Instagram%20.png" alt="Instagram"/></a>
-      <a href="https://www.youtube.com/@RisabGamerz" target="_blank"><img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/refs/heads/main/youtube.png" alt="YouTube"/></a>
-      <a href="https://open.spotify.com/user/31j3thlbkm3b56egsrugcpm3egxa" target="_blank"><img src="https://raw.githubusercontent.com/Risab-Gamerz/Risab_Das/refs/heads/main/Spotify.png" alt="Spotify"/></a>
-    </div>
+    <section id="about" class="fade-in">
+      <h2 class="section-title">About Me</h2>
+      <div class="info">
+        <p>A passionate Editor, Gamer, AI Enthusiast, and Developer from India. I love creating content, exploring new technologies, and pushing creative boundaries.</p>
+        
+        <p><strong>Nationality:</strong> Indian</p>
+        <p><strong>Religion:</strong> Hinduism</p>
+        <p><strong>Age:</strong> <span id="age"></span></p>
+        <p><strong>IQ:</strong> 135</p>
+        <p><strong>Languages:</strong> English, Hindi, Bengali, Russian(beginner)</p>
+        <p><strong>Email:</strong>sadcatnew@gmail.com</p>
+      </div>
+    </section>
 
-    <div class="skills">
-      <a href="Editing.html">Editor</a>
-      <a href="gaming.html">Gamer</a>
-      <a href="ai.html">AI Master</a>
-      <a href="chess.html">Chess Expert</a>
-      <a href="developer.html">Developer</a>
-    </div>
+    <section id="projects" class="fade-in">
+      <h2 class="section-title">My Projects</h2>
+      <div class="projects-grid">
+        <div class="card">
+          <h3>Video Editing Portfolio</h3>
+          <p>Showcase of my best video editing work across different genres and styles.</p>
+                    <a href="https://risab-gamerz.github.io/Biodata/Editing.html" target="_blank" class="kofi-btn">
+            View
+          </a>
+        </div>
+        <div class="card">
+          <h3>Minecraft Mods</h3>
+          <p>The Softwares that I made for minecraft.It is making people happy and addicted </p>
+          <a href="https://risab-gamerz.github.io/risab-projects-mcpe/" target="_blank" class="kofi-btn">
+            View
+          </a>
+        </div>
+        <div class="card">
+          <h3>Softwares</h3>
+          <p>Custom softwares to help people in real life tasks .It is in progress</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="info">
-      <p><strong>Nationality:</strong> Indian</p>
-      <p><strong>Religion:</strong> Hindu</p>
-      <p><strong>Age:</strong> <span id="age"></span></p>
-      <p><strong>IQ:</strong> 135</p>
-      <p><strong>Languages:</strong> English, Hindi, Bengali, Russian</p>
-    </div>
+    <section id="skills" class="fade-in">
+      <h2 class="section-title">My Skills</h2>
+      <div class="skills-grid">
+        <div class="card">
+          <h3>Video Editing</h3>
+          <p>Professional editing with Capcut Pro, AI , and Alright Motion and a secret app</p>
+        </div>
+        <div class="card">
+          <h3>AI Prompting</h3>
+          <p>Expertise in crafting effective prompts to do any work leaving no mistake behind .I can solo 10 mans work by AI</p>
+        </div>
+        <div class="card">
+          <h3>Developer</h3>
+          <p>Expert in builing game subdivision mods and new softwares</p>
+        </div>
+        <div class="card">
+          <h3>Coder</h3>
+          <p> Knows Various types of coding Languages like C basic,Html,Css,Js,Python,Json</p>
+        </div>
+       <div class="card">
+          <h3>Gamer</h3>
+          <p> Tried Over 500 games and expertise in competietive gaming</p>
+        </div>
+          <div class="card">
+          <h3>Chess.com Player</h3>
+          <p> Aggressive with tactical flair; enjoys attacking openings for function</p>
+        </div>
+      </div>
+    </section>
 
-    <footer>Made by Risab — 2025</footer>
-  </div>
+    <section id="companies" class="fade-in">
+      <h2 class="section-title">My Companies</h2>
+      <div class="companies-section">
+        <div class="company-card">
+          <h3>
+            <img src="https://raw.githubusercontent.com/Risab-Gamerz/Biodata/main/warriors'_studios.png" alt="Warriors' Studios Logo" class="company-logo">
+            Warriors' Studios
+          </h3>
+          <p>Warriors Studios is a place for Minecraft PE official texture packs, shaders, and mods made by RisabGamerz. We specialize in creating high-quality Minecraft content that enhances your gameplay experience with custom textures, visual improvements through shaders, and exciting mods that add new features to the game.</p>
+          <p>Our creations are designed to work seamlessly with Minecraft Pocket Edition, bringing PC-level quality to mobile devices. Each release is carefully tested and optimized for performance across different devices.</p>
+          
+          <a href="https://ko-fi.com/risabgamerz" target="_blank" class="kofi-btn">
+            <img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="Ko-fi" class="kofi-icon">
+            Support me on Ko-fi
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer>
+    &copy; <span id="year"></span> Risab. All rights reserved.
+  </footer>
+
+  <!-- Audio element for click sounds -->
+  <audio id="clickSound" src="https://github.com/Risab-Gamerz/Biodata/raw/refs/heads/main/button-click.mp3"></audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
+    // Initialize particles.js
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: '#ff1a1a' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#ff1a1a',
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: 'none',
+          random: true,
+          straight: false,
+          out_mode: 'out'
+        }
+      },
+      interactivity: {
+        events: {
+          onhover: { enable: true, mode: 'repulse' },
+          onclick: { enable: true, mode: 'push' }
+        },
+        modes: {
+          repulse: { distance: 100, duration: 0.4 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+
+    // Calculate age
     function calculateAge(birthDate) {
       const today = new Date();
       const birth = new Date(birthDate);
@@ -177,7 +649,69 @@
       return age;
     }
     document.getElementById('age').textContent = calculateAge('2009-01-01');
-  </script>
 
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Loader animation
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.querySelector('.loader').style.opacity = '0';
+        setTimeout(() => {
+          document.querySelector('.loader').style.display = 'none';
+        // Add slide-up animation to all sections after load
+          document.querySelectorAll('section').forEach((section, index) => {
+            setTimeout(() => {
+              section.classList.add('slide-up');
+            }, index * 200);
+          });
+        }, 500);
+      }, 1000);
+      
+      // Initialize intersection observer for scroll animations
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach(section => {
+        observer.observe(section);
+      });
+    });
+
+    // Add click sounds to all buttons and links
+    const clickSound = document.getElementById('clickSound');
+    const allButtons = document.querySelectorAll('a, button');
+    
+    allButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        clickSound.currentTime = 0;
+        clickSound.play();
+      });
+    });
+
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 300) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      document.querySelectorAll('nav a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === `#${current}`) {
+          a.classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
